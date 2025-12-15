@@ -98,7 +98,7 @@ namespace TcpStatusServer
                 _clients.Remove(client);
             }
 
-            Console.WriteLine($"{client.ClientName} disconnected");
+            Console.WriteLine($"----- {client.ClientName} disconnected -----");
         }
     }
 }

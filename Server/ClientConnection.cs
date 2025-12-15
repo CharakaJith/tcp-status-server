@@ -56,7 +56,7 @@ namespace TcpStatusServer.Server
                     if (message.StartsWith($"{ProtocolMessages.Name}|"))
                     {
                         ClientName = message.Split('|')[1].Trim();
-                        Console.WriteLine($"{ClientName} connected");
+                        Console.WriteLine($"----- {ClientName} connected -----");
                         continue;
                     }
 
@@ -90,7 +90,7 @@ namespace TcpStatusServer.Server
             try
             {
                 // command string -> bytes and write
-                var data = Encoding.UTF8.GetBytes($"{command} \n");
+                var data = Encoding.UTF8.GetBytes($"{command}\n");
                 _stream.Write(data, 0, data.Length);
             }
             catch (Exception ex)

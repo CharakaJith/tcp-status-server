@@ -1,6 +1,9 @@
 <div align="center">
-  <h1="center">TCP/IP Status Monitoring System</h1>
+  <h1="center">TCP/IP Status Monitoring System - Server</h1>
 </div>
+
+![Terminal Output](./public/images/terminal.png)
+![Folder structure](./public/images/folder_structure.png)
 
 ### The TCP Status Server is a C#/.NET–based TCP/IP server application designed to manage and monitor multiple client connections through a custom command–response protocol. It supports configurable polling, concurrent client handling, and real-time message processing using asynchronous socket communication.
 
@@ -56,18 +59,19 @@
 
 ### Declaration
 
-- This project, including all source code and documentation, was developed by me as part of the Aeontrix AI Backend Developer technical assessment.
+- This project, including all source code and documentation, was developed by me as part of the MindOx Techno Private Limited technical assessment.
 - Product descriptions and documentation were reviewed and refined using ChatGPT to ensure proper grammar, clarity, and professional English.
 - Guidance from ChatGPT was consulted for project organization and coding best practices. All server logic, protocol design, and implementation were completed independently by the author.
-
-## Contact
-
-Email: [gunasinghe.info@gmail.com](mailto:gunasinghe.info@gmail.com) | LinkedIn: [Charaka Jith Gunasinghe](https://www.linkedin.com/in/charaka-gunasinghe/)
 
 ### References
 
 - [.NET TCP/IP Networking Concepts](https://learn.microsoft.com/en-us/dotnet/fundamentals/networking/sockets/tcp-classes)
 - [Building a High-Performance TCP Server](https://medium.com/@Alikhalili/building-a-high-performance-tcp-server-from-scratch-a8ede35c4cc2)
+- [Network Programming in C#](https://www.delftstack.com/howto/csharp/network-programming-in-csharp)
+
+## Contact
+
+Email: [gunasinghe.info@gmail.com](mailto:gunasinghe.info@gmail.com) | LinkedIn: [Charaka Jith Gunasinghe](https://www.linkedin.com/in/charaka-gunasinghe/)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
