@@ -1,5 +1,6 @@
 using System.Net;
 using System.Net.Sockets;
+using TcpStatusServer.Protocol;
 using TcpStatusServer.Server;
 
 namespace TcpStatusServer
@@ -76,7 +77,7 @@ namespace TcpStatusServer
                     {
                         foreach (var client in _clients)
                         {
-                            client.SendCommand("STATUS");
+                            client.SendCommand(ProtocolMessages.StatusReq);
                         }
                     }
                 }

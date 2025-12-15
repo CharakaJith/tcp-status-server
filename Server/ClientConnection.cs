@@ -1,5 +1,6 @@
 using System.Net.Sockets;
 using System.Text;
+using TcpStatusServer.Protocol;
 
 namespace TcpStatusServer.Server
 {
@@ -105,10 +106,10 @@ namespace TcpStatusServer.Server
             // map message pattern to readable logs
             var output = message switch
             {
-                var msg when msg.StartsWith("ACK") => "ACK received from client",
-                var msg when msg.StartsWith("STATUS_REPLY") => $"Status received: {message}",
-                var msg when msg.StartsWith("BUSY") => "Client is busy",
-                var msg when msg.StartsWith("ERROR") => $"Client error: {message}",
+                var msg when msg.StartsWith(ProtocolMessages.Ack) => "ACK received from client",
+                var msg when msg.StartsWith(ProtocolMessages.StatusReply) => $"Status received: {message}",
+                var msg when msg.StartsWith(ProtocolMessages.Busy) => "Client is busy",
+                var msg when msg.StartsWith(ProtocolMessages.Error) => $"Client error: {message}",
                 _ => $"Unknown message: {message}"
             };
 
