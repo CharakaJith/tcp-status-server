@@ -44,6 +44,23 @@ namespace TcpStatusServer.Server
             }
         }
 
+        public void SendCommand(string command)
+        {
+            if (!this._client.Connected)
+                return;
+
+            try
+            {
+                var data = Encoding.UTF8.GetBytes($"{command} \n");
+                this._stream.Write(data, 0, data.Length);
+            }
+            catch (Exception ex)
+            {
+                this._client.Close();
+
+            }
+        }
+
         private void HandleMessage(string message)
         {
             var output = message switch
