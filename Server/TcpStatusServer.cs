@@ -16,7 +16,7 @@ namespace TcpStatusServer
         private readonly List<ClientConnection> _clients = new();
 
         private bool _pollingEnabled = true;
-        private int _pollIntervalSeconds = 1;
+        private int _pollIntervalSeconds = 5;
 
         /// <summary>
         /// create new server bounded to the given port
