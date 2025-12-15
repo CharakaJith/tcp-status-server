@@ -65,9 +65,14 @@
 
 ### References
 
-- [.NET TCP/IP Networking Concepts](https://learn.microsoft.com/en-us/dotnet/fundamentals/networking/sockets/tcp-classes)
+- [DotNET TCP/IP Networking Concepts](https://learn.microsoft.com/en-us/dotnet/fundamentals/networking/sockets/tcp-classes)
 - [Building a High-Performance TCP Server](https://medium.com/@Alikhalili/building-a-high-performance-tcp-server-from-scratch-a8ede35c4cc2)
 - [Network Programming in C#](https://www.delftstack.com/howto/csharp/network-programming-in-csharp)
+
+### Documentations
+
+- [Application Document](./public/docs/Documentation.pdf)
+- [Assignment](./public/docs/Assignment.pdf)
 
 ## Contact
 

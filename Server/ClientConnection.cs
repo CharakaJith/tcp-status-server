@@ -119,7 +119,7 @@ namespace TcpStatusServer.Server
             var output = message switch
             {
                 var msg when msg.StartsWith(ProtocolMessages.Ack) => $"{ClientName}: ACK received",
-                var msg when msg.StartsWith(ProtocolMessages.StatusReply) => $"{ClientName}: Status received: {message}",
+                var msg when msg.StartsWith(ProtocolMessages.StatusReply) => $"{ClientName}: Status received: {message.Split('|')[1].Trim()}",
                 var msg when msg.StartsWith(ProtocolMessages.Busy) => $"{ClientName}: Client is busy",
                 var msg when msg.StartsWith(ProtocolMessages.Error) => $"{ClientName}: Client error: {message}",
                 _ => $"{ClientName}: Unknown message: {message}"

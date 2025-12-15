@@ -16,7 +16,7 @@ namespace TcpStatusServer
         private readonly List<ClientConnection> _clients = new();
 
         private bool _pollingEnabled = true;
-        private int _pollIntervalSeconds = 5;
+        private int _pollIntervalSeconds = 1;
 
         /// <summary>
         /// create new server bounded to the given port
@@ -37,7 +37,7 @@ namespace TcpStatusServer
         {
             // start server
             _listener.Start();
-            Console.WriteLine($"server started on port: {_port}");
+            Console.WriteLine($"\n----- server started on port: {_port} -----\n");
             
             // run background polling logic
             _ = Task.Run(PollClientAsync);
@@ -98,7 +98,7 @@ namespace TcpStatusServer
                 _clients.Remove(client);
             }
 
-            Console.WriteLine($"----- {client.ClientName} disconnected -----");
+            Console.WriteLine($"\n----- {client.ClientName} disconnected -----\n");
         }
     }
 }
