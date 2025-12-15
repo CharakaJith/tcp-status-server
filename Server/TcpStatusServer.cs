@@ -55,8 +55,6 @@ namespace TcpStatusServer
 
                 }
 
-                Console.WriteLine("Client connected");
-
                 // handle client communication asynchronously
                 _ = client.HandleAsync();
             }
@@ -100,7 +98,7 @@ namespace TcpStatusServer
                 _clients.Remove(client);
             }
 
-            Console.WriteLine("Client disconnected");
+            Console.WriteLine($"{client.ClientName} disconnected");
         }
     }
 }

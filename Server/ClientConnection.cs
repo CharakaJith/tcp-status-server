@@ -15,6 +15,8 @@ namespace TcpStatusServer.Server
         private readonly NetworkStream _stream;
         private readonly Action<ClientConnection> _onDisconnect;
 
+        public string ClientName { get; private set; } = "Unknown";
+
         /// <summary>
         /// initialize a new client connection 
         /// </summary>
@@ -49,12 +51,22 @@ namespace TcpStatusServer.Server
 
                     // decode and process the recieved message
                     var message = Encoding.UTF8.GetString(buffer, 0, bytesRead);
+
+                    // check if message is name
+                    if (message.StartsWith($"{ProtocolMessages.Name}|"))
+                    {
+                        ClientName = message.Split('|')[1].Trim();
+                        Console.WriteLine($"{ClientName} connected");
+                        continue;
+                    }
+
+                    // pass other messaged to handler
                     HandleMessage(message);
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Client error: {ex.Message}");
+                Console.WriteLine($"{ClientName} connection error: {ex.Message}");
             }
             finally
             {
@@ -101,16 +113,16 @@ namespace TcpStatusServer.Server
         /// identify message type and log meaningful message
         /// </summary>
         /// <param name="message">message recieved from client</param>
-        private static void HandleMessage(string message)
+        private void HandleMessage(string message)
         {
             // map message pattern to readable logs
             var output = message switch
             {
-                var msg when msg.StartsWith(ProtocolMessages.Ack) => "ACK received from client",
-                var msg when msg.StartsWith(ProtocolMessages.StatusReply) => $"Status received: {message}",
-                var msg when msg.StartsWith(ProtocolMessages.Busy) => "Client is busy",
-                var msg when msg.StartsWith(ProtocolMessages.Error) => $"Client error: {message}",
-                _ => $"Unknown message: {message}"
+                var msg when msg.StartsWith(ProtocolMessages.Ack) => $"{ClientName}: ACK received",
+                var msg when msg.StartsWith(ProtocolMessages.StatusReply) => $"{ClientName}: Status received: {message}",
+                var msg when msg.StartsWith(ProtocolMessages.Busy) => $"{ClientName}: Client is busy",
+                var msg when msg.StartsWith(ProtocolMessages.Error) => $"{ClientName}: Client error: {message}",
+                _ => $"{ClientName}: Unknown message: {message}"
             };
 
             Console.WriteLine(output);

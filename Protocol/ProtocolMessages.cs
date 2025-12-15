@@ -14,5 +14,6 @@ namespace TcpStatusServer.Protocol
         public const string Busy = "BUSY";
         public const string StatusReply = "STATUS_REPLY";
         public const string Error = "ERROR";
+        public const string Name = "NAME";
     }
 }
