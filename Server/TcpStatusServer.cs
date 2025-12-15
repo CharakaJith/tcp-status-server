@@ -19,7 +19,7 @@ namespace TcpStatusServer
         private int _pollIntervalSeconds = 5;
 
         /// <summary>
-        /// create new server bounded to the given porn
+        /// create new server bounded to the given port
         /// </summary>
         /// <param name="port">port number to listen for incoming tcp connections</param>
         public StatusServer(int port)

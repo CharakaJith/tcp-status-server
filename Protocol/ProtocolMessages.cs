@@ -14,18 +14,5 @@ namespace TcpStatusServer.Protocol
         public const string Busy = "BUSY";
         public const string StatusReply = "STATUS_REPLY";
         public const string Error = "ERROR";
-
-        // separator
-        public const char Separator = '|';
-
-        public static string BuildStatusReply(string buttonState)
-        {
-            return $"{StatusReply}{Separator}{buttonState}";
-        }
-
-        public static string BuildError(string reason)
-        {
-            return $"{Error}{Separator}{reason}";
-        }
     }
 }
